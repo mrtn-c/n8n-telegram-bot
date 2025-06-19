@@ -1,0 +1,28 @@
+# docker-compose.yml
+version: '3.7'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    restart: unless-stopped
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_USER}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - GENERIC_TIMEZONE=America/Argentina/Cordoba
+    ports:
+      - '5678:5678'
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    restart: unless-stopped
+    depends_on:
+      - n8n
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+    command: http --region=us --log=stdout n8n:5678
+    ports:
+      - '4040:4040'
