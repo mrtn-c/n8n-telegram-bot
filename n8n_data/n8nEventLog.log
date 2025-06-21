@@ -1,0 +1,2 @@
+{"__type":"$$EventMessageAudit","id":"83adfa32-70c7-4d61-a41f-6d401a2b3fb9","ts":"2025-06-21T18:38:32.260+00:00","eventName":"n8n.audit.user.login.success","message":"n8n.audit.user.login.success","payload":{"userId":"5b866f05-a407-4599-ae66-e32b23216470","_email":"mcometta211@alumnos.iua.edu.ar","_firstName":"Martin","_lastName":"Cometta","globalRole":"global:owner","authenticationMethod":"email"}}
+{"__type":"$$EventMessageConfirm","confirm":"83adfa32-70c7-4d61-a41f-6d401a2b3fb9","ts":"2025-06-21T18:38:32.261+00:00","source":{"id":"0","name":"eventBus"}}

@@ -15,6 +15,9 @@ services:
       - GENERIC_TIMEZONE=America/Argentina/Cordoba
     ports:
       - '5678:5678'
+    volumes:
+      # Monta el directorio ./n8n_data en host al data-dir de n8n
+      - ./n8n_data:/home/node/.n8n
 
   ngrok:
     image: ngrok/ngrok:latest
